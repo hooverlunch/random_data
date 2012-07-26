@@ -4,8 +4,14 @@ module RandomData
   module ContactInfo
 
    # Returns a randomly-generated string of digits that roughly resembles a US telephone number.  Not guaranteed to be a valid area code.
+   @@phone_prefix = ["20", "29", "11", "12", "13", "14", "15", "16", "16", "18", "19"]
+   
    def phone
-     "0#{[1, 2, 7].sample}#{'%09d' % rand(9 ** 9)}"
+     "0#{@@phone_prefix.rand}#{'%09d' % rand(9 ** 9)}"
+   end
+   
+   def mobile_phone
+     "07#{'%09d' % rand(9 ** 9)}"
    end
 
    # Returns a randomly-generated string of digits that roughly resembles an international telephone number as dialed from the US.  
@@ -517,7 +523,7 @@ module RandomData
      yahoo.com.cn
      nymag.com
      joomlatune.comw)
-    "#{(initial + lastname).downcase}\@#{domains.rand}"  
+    "#{(initial + '.' + lastname).downcase}\@#{domains.rand}"  
    end
  end
 end

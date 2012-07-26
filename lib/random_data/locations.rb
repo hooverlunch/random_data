@@ -54,9 +54,10 @@ module RandomData
     def uk_post_code
       number_1  = rand(100).to_s
       number_2  = rand(100).to_s
-      letters = ("AA".."ZZ").to_a.rand
+      start_letters = ("AA".."ZZ").to_a.rand
+      end_letters = ("AA".."ZZ").to_a.rand
 
-      return "#{letters}#{number_1} #{number_2}#{letters}"
+      return "#{start_letters}#{number_1} #{number_2}#{end_letters}"
     end
 
     # from technoweenie: http://svn.techno-weenie.net/projects/plugins/us_states/lib/us_states.rb
