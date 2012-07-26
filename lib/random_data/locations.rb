@@ -7,16 +7,9 @@ module RandomData
   module Locations
 
     
-    trees = %w( Acacia Beech Birch Cedar Cherry Chestnut Elm Larch Laurel
-                Linden Maple Oak Pine Rose Walnut Willow)
-    people = %w( Adams Franklin Jackson Jefferson Lincoln
-                  Madison Washington Wilson)
-    people_uk = %w( Churchill Tyndale Latimer Cranmer )
-    places = %w( Highland Hill Park Woodland Sunset Virginia)
-    numbers = %w( 1st 2nd 4th 5th 34th 42nd )
-    @@streetnames =  trees + people + places + numbers
+    @@streetnames = %w(Albert Alexander Broadway Chester Church Drive George Grange Green Grove High Highfield King Kingsway Lane London Main Manchester Manor Mill New North Park Queen Queens Queensway Richmond School South Springfield St-Johns Stanley Station The Victoria West Windsor York)
                     
-    @@street_types = %w(St Ave Rd Blvd Trl Ter Rdg Pl Pkwy Ct Circle)
+    @@street_types = %w(Alley Approach Bay Bend Canyon Causeway Circle Close Court Cove Crescent Drive Esplanade Fairway Frontage Gardens Gate Grade Grove Heights Highlands Hill Knoll Lane Loop Manor Mews Parade Park Parkway Pathway Place Plaza Promenade Quadrant Ridge Road Square Terrace Trail Vale View Walk Way)
 
     # Returns the first line of a US maiiling address (street number, street name, street type)
     #
@@ -25,7 +18,7 @@ module RandomData
     #Random.address_line_1 = "24317 Jefferson Blvd"
     
     def address_line_1
-      "#{rand(40000)} #{@@streetnames.rand} #{@@street_types.rand}"
+      "#{rand(150)} #{@@streetnames.rand} #{@@street_types.rand}"
     end
 
     alias :us_address_line_1 :address_line_1
@@ -48,20 +41,22 @@ module RandomData
     def zipcode
      "%05d" % rand(99999) 
     end
-
+    
+    @@town = %w(Aberaeron Abercanaid Abercarn Aberdare Aberdeen Abergavenny Abergele Aberkenfig Aberporth Abertillery Abertridwr Aberystwyth Airdrie Aldershot Alloa Amlwch Ammanford Andrews Arbroath Asaph Ash Ayr Bagillt Bala Bangor Bargoed Barmouth Barnsley Barrhead Barry Bathgate Bay Bearsden Beaumaris Beddau Bedwas Bellshill Benllech Bethesda Betws Birkenhead Birmingham Bishopbriggs Bishopston Blackburn Blackpool Blackwood Blaenau Blaenavon Blantyre Bodelwyddan Bolton Bournemouth Bow Bradford Brecon Bridge Bridgend Brighton Bristol Brymbo Brynaman Brynmawr Buckhaven Buckley Builth Burnley Burry Caerleon Caernarfon Caerphilly Caldicot Cambridge Cambuslang Cardiff Cardigan Carmarthen Cefn-mawr Chatham Chepstow Chirk Church Clarkston Clears Clydebank Coatbridge Coedpoeth Colwyn Connah's Conwy Coventry Cowbridge Crawley Creigiau Criccieth Croeserw Cross Crynant Cumbernauld Cwm Cwmafan Cwmbach Cwmbran Cwmllynfell Cyfarthfa David's Denbigh Derby Dinas Dock Dolgellau Doncaster Dumbarton Dumfries Dundee Dunfermline Dyserth East Ebbw Edinburgh Elgin Emlyn Erskine Falkirk Fardre Felinheli Ferndale Ffestiniog Fishguard Flint Gelligaer Giffnock Gilfach Gilwern Glan Glanaman Glandwr Glenrothes Gloucester Glyn-Neath Glyncoch Goch Goodwick Gorseinon Grangemouth Greenfield Greenock Gresford Grimsby Hall Hamilton Hands Hastings Haven Haverfordwest Heolgerrig Holyhead Holywell Hope Huddersfield Hull Inverness Ipswich Irvine Johnston Johnstone Keynes Kidwelly Kilbride Kilmarnock Kilwinning Kirkcaldy Kirkintilloch Knighton Lampeter Langstone Larkhall Leeds Leeswood Leicester Liverpool Livingston Llanberis Llanbradach Llandeilo Llandovery Llandrindod Llandudno Llandybie Llanelli Llanfairfechan Llanfairpwll Llangefni Llangollen Llangynwyd Llanharan Llanharry Llanhilleth Llanidloes Llanrug Llanrwst Llantrisant Llantwit Llay London Luton Machen Machynlleth Maesteg Magor Major Manchester Mansfield Marshfield Mearns Menai Merthyr Middlesbrough Milford Milton Mold Monmouth Mostyn Motherwell Mountain Musselburgh Narberth Neath New Newcastle Newport Newton Newtown Neyland Northampton Northop Norwich Nottingham Oakdale Ogmore Oxford Paisley Pantymwyn Pembroke Penarth Penclawdd Pencoed Penicuik Penmaenmawr Penrhyn Penrhyndeudraeth Penrhys Pentyrch Penyffordd Penygroes Perth Peterborough Peterhead Plymouth Polmont Pontardawe Pontarddulais Pontlliw Pontyberem Pontycymer Pontypool Pontypridd Port Porthcawl Porthmadog Portsmouth Powys Prestatyn Presteigne Preston Price Pwllheli Pyle Quay Radyr Reading Renfrew Resolven Rhayader Rhondda Rhoose Rhosllanerchrugog Rhostyllen Rhuddlan Rhyl Rhymney Risca Rochdale Rogiet Rosset Ruabon Rutherglen Ruthin Saundersfoot Seven Sheffield Shotton Sisters Soughton Southampton Southend Southgate St Stenhousemuir Stirling Stoke Street Sunderland Swansea Swindon Taff Talbot Telford Tenby Tongwynlais Tonyrefail Town Tredegar Treharris Trimsaran Tumble Tydfil Tywyn Underwood Usk Vale Valley Viewpark Village Wakefield Warrington Well Wells Welshpool Whelston Wigan Wishaw Worthing Wrexham  Ynysybwl York Ystradgynlais)
+    
+    def town
+      "#{@@town.rand}"
+    end
 
     # Returns a string providing something in the general form of a UK post code.  Like the zip codes, this might
     # not actually be valid. Doesn't cover London whose codes are like "SE1".
 
     def uk_post_code
-      post_towns = %w(BM CB CV LE LI LS KT MK NE OX PL YO)
-      # Can't remember any othes at the moment
       number_1  = rand(100).to_s
       number_2  = rand(100).to_s
-      # Easier way to do this? 
       letters = ("AA".."ZZ").to_a.rand
 
-      return "#{post_towns.rand}#{number_1} #{number_2}#{letters}"
+      return "#{letters}#{number_1} #{number_2}#{letters}"
     end
 
     # from technoweenie: http://svn.techno-weenie.net/projects/plugins/us_states/lib/us_states.rb
