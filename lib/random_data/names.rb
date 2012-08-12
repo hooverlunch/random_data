@@ -68,5 +68,13 @@ module RandomData
     def full_name(options = { :initial => false, :gender => nil })
       "#{first_name} #{last_name}"
     end
+    
+    # Returns a random ethnicity
+    
+    @@ethnic_catergory =["British", "Irish", "White and Black Caribbean", "White and Black African", "White and Asian", "Any other mixed background", "Indian", "Pakistani", "Bangladeshi", "Any other Asian background", "Caribbean", "African", "Any other Black background", "Chinese", "Any other ethnic group", "Not stated"]
+    
+    def ethnicity
+      "#{@@ethnic_catergory.rand}"
+    end
   end
 end
