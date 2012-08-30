@@ -71,7 +71,7 @@ module RandomData
     
     # Returns a random ethnicity
     
-    @@ethnic_catergory =["British", "Irish", "White and Black Caribbean", "White and Black African", "White and Asian", "Any other mixed background", "Indian", "Pakistani", "Bangladeshi", "Any other Asian background", "Caribbean", "African", "Any other Black background", "Chinese", "Any other ethnic group", "Not stated"]
+    @@ethnic_catergory =["A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "P", "R", "S", "Z"]
     
     def ethnicity
       "#{@@ethnic_catergory.rand}"
