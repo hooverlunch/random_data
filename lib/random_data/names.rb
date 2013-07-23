@@ -2,9 +2,9 @@ module RandomData
 
   # Methods to create realistic-looking names
   module Names
-    
+
     # Returns a random letter
-    
+
     def initial
       ('A'..'Z').to_a.rand
     end
@@ -32,7 +32,7 @@ module RandomData
     # Returns a random firstname
     #
     # >> Random.firstname
-    # 
+    #
     # "Sandra"
 
     def firstname
@@ -44,7 +44,7 @@ module RandomData
     # Returns a random male firstname
     #
     # >> Random.firstname_male
-    # 
+    #
     # "James"
 
     def firstname_male
@@ -56,23 +56,23 @@ module RandomData
     # Returns a random female firstname
     #
     # >> Random.firstname_female
-    # 
+    #
     # "Mary"
 
     def firstname_female
       @@female_first_names.rand.capitalize
     end
     alias first_name_female firstname_female
-    
+
     # Returns a random full name
     def full_name(options = { :initial => false, :gender => nil })
       "#{first_name} #{last_name}"
     end
-    
+
     # Returns a random ethnicity
-    
-    @@ethnic_catergory =["A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "P", "R", "S", "Z"]
-    
+
+    @@ethnic_catergory = %w(01 02 03 04 05 06 07 08 09 10 12 13 14 15 16 99)
+
     def ethnicity
       "#{@@ethnic_catergory.rand}"
     end
