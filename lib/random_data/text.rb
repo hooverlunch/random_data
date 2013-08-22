@@ -51,7 +51,7 @@ module RandomData
        paras << sents.join('. ')
      end
  
-     return params.join("\n\n")
+     return paras.join("\n\n") + '.'
    end
 
     def words(size = 1)
@@ -59,7 +59,7 @@ module RandomData
     end
     
     def phrase(bound = 5)
-      words(rand(bound)).capitalize
+      words(rand(bound - 3) + 3).capitalize
     end
     
     def question
@@ -67,7 +67,7 @@ module RandomData
     end
     
     def sentence
-      @@sentences.rand
+      @@sentences.rand + '.'
     end
 
  end
