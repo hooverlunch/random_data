@@ -55,7 +55,8 @@ module RandomData
    end
 
     def words(size = 1)
-      paragraphs.split(" ")[0,size].join(" ").gsub(/[,;?\.'"\-\n]/, "").downcase
+      w = @@sentences.join(' ').split(' ')
+      w[rand(w.size - size - 1), size].join(" ").gsub(/[,;?\.'"\-\n]/, "").downcase
     end
     
     def phrase(bound = 5)
