@@ -217,6 +217,26 @@ class TestRandomData < Test::Unit::TestCase
       weights.roulette(1){|i| x=i}
     end
   end
+  
+  def test_should_return_random_url
+    assert_equal 'http://cdn.mapquest.com/voluptas.txt', Random.url
+  end
+
+  def test_should_return_random_url_fixed_protocol_http
+    assert_equal 'http://cdn.mapquest.com/voluptas.txt', Random.url(protocol: "http")
+  end
+
+  def test_should_return_random_url_fixed_protocol_https
+    assert_equal 'https://cdn.mapquest.com/voluptas.txt', Random.url(protocol: "https")
+  end
+
+  def test_should_return_random_imgUrl_fixed_protocol_http
+    assert_equal 'http://ad.naver.com/numquam.jpg', Random.imgUrl(protocol: "http")
+  end
+
+  def test_should_return_random_imgUrl_fixed_protocol_https
+    assert_equal 'https://ad.naver.com/numquam.jpg', Random.imgUrl(protocol: "https")
+  end
 end
 
 class TestRandomDataMethodMissing < Test::Unit::TestCase
@@ -277,25 +297,6 @@ class TestRandomDataMethodMissing < Test::Unit::TestCase
     assert_equal 'five-a-side', Random.sport
   end
 
-  # def test_should_return_random_url
-    # assert_equal '', Random.url
-  # end
-# 
-  # def test_should_return_random_url_fixed_protocol_http
-    # assert_equal 'http://', Random.url(protocol: "http")
-  # end
-# 
-  # def test_should_return_random_url_fixed_protocol_https
-    # assert_equal 'https://', Random.url(protocol: "https")
-  # end
-# 
-  # def test_should_return_random_imgUrl_fixed_protocol_http
-    # assert_equal 'http://', Random.imgUrl(protocol: "http")
-  # end
-# 
-  # def test_should_return_random_imgUrl_fixed_protocol_https
-    # assert_equal 'https://', Random.imgUrl(protocol: "https")
-  # end
 end
 
 class TestRandomDataMarkovGenerator < Test::Unit::TestCase
