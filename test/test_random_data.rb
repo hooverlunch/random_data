@@ -7,8 +7,12 @@ class TestRandomData < Test::Unit::TestCase
     srand(100)
   end
   
+  def alphanumeric?(str)
+    str.match(/^[[:alpha:]]+$/)
+  end
+  
   def test_should_return_random_phone_number
-    assert_equal "620-892-9039", Random.phone
+    assert_equal "016198236952", Random.phone
   end
 
   def test_should_return_random_international_phone
@@ -16,7 +20,9 @@ class TestRandomData < Test::Unit::TestCase
   end
   
   def test_should_return_random_email
-    assert_equal "ijones@webmail.com", Random.email
+    username, domain = Random.email.split(/@/)
+    assert username.match(/^[[:alpha:]\.]+$/)
+    assert domain.match(/^[[:alpha:]]+\.[[:alpha:]]+$/)
   end
 
   def test_should_return_random_date
@@ -30,7 +36,10 @@ class TestRandomData < Test::Unit::TestCase
   end
   
   def test_should_return_random_address_line_1
-    assert_equal "38408 Highland Blvd", Random.address_line_1    
+    number, name, streetType = Random.address_line_1.split
+    assert_not_equal 0, number.to_i
+    assert alphanumeric?(name)     
+    assert alphanumeric?(streetType)     
   end
 
   def test_should_return_random_address_line_2
@@ -42,11 +51,11 @@ class TestRandomData < Test::Unit::TestCase
   end
 
   def test_should_return_random_uk_post_code
-    assert_equal "BM8 24DB", Random.uk_post_code    
+    assert_equal "HX8 8DB", Random.uk_post_code    
   end
 
   def test_should_return_random_state
-    assert_equal "DE", Random.state    
+    assert_equal "DE", Random.state_abbr    
   end
 
   def test_should_return_random_state_full
@@ -62,44 +71,46 @@ class TestRandomData < Test::Unit::TestCase
   end
 
   def test_should_return_random_firstname
-    assert_equal "Donald", Random.firstname    
+    assert alphanumeric?(Random.firstname)    
   end
 
   def test_should_return_random_first_name
-    assert_equal "Donald", Random.first_name    
+    assert alphanumeric?(Random.first_name)    
   end
 
 
   def test_should_return_random_firstnamemale
-    assert_equal "Donald", Random.firstname_male 
+    assert alphanumeric?(Random.firstname_male) 
   end
 
   def test_should_return_random_first_name_male
-    assert_equal "Donald", Random.first_name_male 
+    assert alphanumeric?(Random.first_name_male) 
   end
 
   def test_should_return_random_firstnamefemale
-    assert_equal "Charlotte", Random.firstname_female
+    assert alphanumeric?(Random.firstname_female)
   end
 
   def test_should_return_random_first_name_female
-    assert_equal "Charlotte", Random.first_name_female
+    assert alphanumeric?(Random.first_name_female)
   end
 
   def test_should_return_random_initial
-    assert_equal "I", Random.initial    
+    assert_equal "I", Random.initial
   end
 
   def test_should_return_random_lastname
-    assert_equal "Clarke", Random.lastname    
+    assert alphanumeric?(Random.lastname)    
   end
 
   def test_should_return_random_last_name
-    assert_equal "Clarke", Random.last_name
+    assert alphanumeric?(Random.last_name)
   end
 
   def test_should_return_random_full_name
-    assert_equal "Donald Jones", Random.full_name 
+    firstname, lastname = Random.full_name.split
+    assert alphanumeric?(firstname) 
+    assert alphanumeric?(lastname) 
   end
 
   def test_should_return_random_alphanumeric
@@ -110,13 +121,9 @@ class TestRandomData < Test::Unit::TestCase
     assert_equal "8O3dNFm", Random.alphanumeric(7)
   end
 
-  def test_should_return_random_paragraphs
-    assert_equal 2, Random.paragraphs(2).scan(/\n\n/).size
-  end
-
   def test_should_return_random_paragraphs_with_limit
-    num_paragraphs = 5
-    assert_equal num_paragraphs, Random.paragraphs(num_paragraphs).scan(/\n\n/).size
+    num_paragraphs = rand(10)
+    assert_equal num_paragraphs - 1, Random.paragraphs(num_paragraphs).scan(/\n\n/).size
   end
 
   def test_initial_should_not_return_nil
@@ -269,7 +276,26 @@ class TestRandomDataMethodMissing < Test::Unit::TestCase
     assert_equal 'steeple chase', Random.sport
     assert_equal 'five-a-side', Random.sport
   end
-  
+
+  # def test_should_return_random_url
+    # assert_equal '', Random.url
+  # end
+# 
+  # def test_should_return_random_url_fixed_protocol_http
+    # assert_equal 'http://', Random.url(protocol: "http")
+  # end
+# 
+  # def test_should_return_random_url_fixed_protocol_https
+    # assert_equal 'https://', Random.url(protocol: "https")
+  # end
+# 
+  # def test_should_return_random_imgUrl_fixed_protocol_http
+    # assert_equal 'http://', Random.imgUrl(protocol: "http")
+  # end
+# 
+  # def test_should_return_random_imgUrl_fixed_protocol_https
+    # assert_equal 'https://', Random.imgUrl(protocol: "https")
+  # end
 end
 
 class TestRandomDataMarkovGenerator < Test::Unit::TestCase

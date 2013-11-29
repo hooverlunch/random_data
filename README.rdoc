@@ -54,6 +54,11 @@ Random implements a method_missing helper that will choose a line at random from
 
 Note that some methods take parameters to bound or limit the amount of data returned.  See RDocs for details.
 
+=== URL Methods
+Random.url
+Random.imgUrl
+
+
 == Examples of Some Methods
 
 	>>Random.alphanumeric
@@ -111,7 +116,7 @@ Note that some methods take parameters to bound or limit the amount of data retu
 
 	(Note that the zipcodes are totally random and may not be real zipcodes)
 
-	>> Random.state
+	>> Random.state_abbr
 	=> "MD"
 
 	>> Random.state_full
@@ -119,6 +124,12 @@ Note that some methods take parameters to bound or limit the amount of data retu
 
 	>> Random.country
 	=> "Philippines"
+
+	>> Random.url
+	=> "http://example.com//"
+
+	>> Random.imgUrl
+	=> "http://example.com//"
 
 == Contact
 Let me know if you have patches, comments, or suggestions: mailto:mike@subelsky.com

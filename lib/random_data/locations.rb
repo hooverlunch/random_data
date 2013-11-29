@@ -84,9 +84,9 @@ module RandomData
                    ["Washington", "WA"], ["Wisconsin", "WI"], ["West Virginia", "WV"], ["Wyoming", "WY"]]                    
 
     # Returns a state 2-character abbreviation
-    # Random.state = "IL"
+    # Random.state_abbr = "IL"
     
-    def state
+    def state_abbr
       @@us_states.rand[1]
     end
 
