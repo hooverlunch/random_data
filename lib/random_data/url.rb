@@ -31,7 +31,7 @@ module RandomData
     
     
     
-    def imgUrl(opts = {})
+    def img_url(opts = {})
       url(opts.merge(fileExtension: imgExtension))
     end
   end

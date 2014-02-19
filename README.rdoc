@@ -56,7 +56,7 @@ Note that some methods take parameters to bound or limit the amount of data retu
 
 === URL Methods
 Random.url
-Random.imgUrl
+Random.img_url
 
 
 == Examples of Some Methods
@@ -126,10 +126,10 @@ Random.imgUrl
 	=> "Philippines"
 
 	>> Random.url
-	=> "http://example.com//"
+	=> "https://www.icq.com/ut/aliquip/ex.html"
 
-	>> Random.imgUrl
-	=> "http://example.com//"
+	>> Random.img_url
+	=> "http://ad.ucoz.com/omnis/iste/natus.png"
 
 == Contact
 Let me know if you have patches, comments, or suggestions: mailto:mike@subelsky.com

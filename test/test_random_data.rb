@@ -230,12 +230,12 @@ class TestRandomData < Test::Unit::TestCase
     assert_equal 'https://cdn.mapquest.com/voluptas.txt', Random.url(protocol: "https")
   end
 
-  def test_should_return_random_imgUrl_fixed_protocol_http
-    assert_equal 'http://ad.naver.com/numquam.jpg', Random.imgUrl(protocol: "http")
+  def test_should_return_random_img_url_fixed_protocol_http
+    assert_equal 'http://ad.naver.com/numquam.jpg', Random.img_url(protocol: "http")
   end
 
-  def test_should_return_random_imgUrl_fixed_protocol_https
-    assert_equal 'https://ad.naver.com/numquam.jpg', Random.imgUrl(protocol: "https")
+  def test_should_return_random_img_url_fixed_protocol_https
+    assert_equal 'https://ad.naver.com/numquam.jpg', Random.img_url(protocol: "https")
   end
 end
 

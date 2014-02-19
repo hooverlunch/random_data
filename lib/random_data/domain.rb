@@ -505,7 +505,6 @@ module RandomData
       domains.rand
     end
     
-    #Returns true or false randomly
     def subdomain
       %w(www ftp ad cdn).rand
     end
