@@ -84,9 +84,9 @@ module RandomData
                    ["Washington", "WA"], ["Wisconsin", "WI"], ["West Virginia", "WV"], ["Wyoming", "WY"]]                    
 
     # Returns a state 2-character abbreviation
-    # Random.state = "IL"
+    # Random.state_abbr = "IL"
     
-    def state
+    def state_abbr
       @@us_states.rand[1]
     end
 
@@ -135,6 +135,13 @@ module RandomData
      
     def city
       @@cities.rand
+    end
+
+    # Returns an address consisting of address_line_1, city, state, zipcode.
+
+    # Random.
+    def address_one_line
+      "%s, %s, %s %s" % [self.address_line_1, self.city, self.state_abbr, self.zipcode]
     end
   end
 end

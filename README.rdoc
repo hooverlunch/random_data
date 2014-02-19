@@ -23,10 +23,10 @@ Random.phone, Random.international_phone, Random.email
 Random.date, Random.date_between
 
 === Location Methods
-Random.address_line_1, Random.address_line_2, Random.zipcode, Random.uk_post_code, Random.state, Random.state_full, Random.country, Random.city
+Random.address_line_1, Random.address_line_2, Random.zipcode, Random.uk_post_code, Random.state, Random.state_full, Random.country, Random.city, Random.address_one_line
 	
 === Name Methods
-Random.firstname, Random.firstname_male, Random.firstname_female, Random.initial, Random.lastname
+Random.firstname, Random.firstname_male, Random.firstname_female, Random.initial, Random.lastname, Random.full_name
 
 === Text Methods
 Random.alphanumeric, Random.paragraphs
@@ -53,6 +53,11 @@ Array.roulette
 Random implements a method_missing helper that will choose a line at random from a file in your load path.  See Random::method_missing for details.
 
 Note that some methods take parameters to bound or limit the amount of data returned.  See RDocs for details.
+
+=== URL Methods
+Random.url
+Random.img_url
+
 
 == Examples of Some Methods
 
@@ -111,7 +116,7 @@ Note that some methods take parameters to bound or limit the amount of data retu
 
 	(Note that the zipcodes are totally random and may not be real zipcodes)
 
-	>> Random.state
+	>> Random.state_abbr
 	=> "MD"
 
 	>> Random.state_full
@@ -119,6 +124,12 @@ Note that some methods take parameters to bound or limit the amount of data retu
 
 	>> Random.country
 	=> "Philippines"
+
+	>> Random.url
+	=> "https://www.icq.com/ut/aliquip/ex.html"
+
+	>> Random.img_url
+	=> "http://ad.ucoz.com/omnis/iste/natus.png"
 
 == Contact
 Let me know if you have patches, comments, or suggestions: mailto:mike@subelsky.com
