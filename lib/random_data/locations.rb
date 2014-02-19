@@ -136,5 +136,12 @@ module RandomData
     def city
       @@cities.rand
     end
+
+    # Returns an address consisting of address_line_1, city, state, zipcode.
+
+    # Random.
+    def address_one_line
+      "%s, %s, %s %s" % [self.address_line_1, self.city, self.state_abbr, self.zipcode]
+    end
   end
 end

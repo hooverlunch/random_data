@@ -297,6 +297,9 @@ class TestRandomDataMethodMissing < Test::Unit::TestCase
     assert_equal 'five-a-side', Random.sport
   end
 
+  def test_should_return_correct_address_one_line
+    assert_equal "53 Church Vale, Hoopstad, NC 30675", Random.address_one_line
+  end
 end
 
 class TestRandomDataMarkovGenerator < Test::Unit::TestCase

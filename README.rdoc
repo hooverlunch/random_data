@@ -23,10 +23,10 @@ Random.phone, Random.international_phone, Random.email
 Random.date, Random.date_between
 
 === Location Methods
-Random.address_line_1, Random.address_line_2, Random.zipcode, Random.uk_post_code, Random.state, Random.state_full, Random.country, Random.city
+Random.address_line_1, Random.address_line_2, Random.zipcode, Random.uk_post_code, Random.state, Random.state_full, Random.country, Random.city, Random.address_one_line
 	
 === Name Methods
-Random.firstname, Random.firstname_male, Random.firstname_female, Random.initial, Random.lastname
+Random.firstname, Random.firstname_male, Random.firstname_female, Random.initial, Random.lastname, Random.full_name
 
 === Text Methods
 Random.alphanumeric, Random.paragraphs
